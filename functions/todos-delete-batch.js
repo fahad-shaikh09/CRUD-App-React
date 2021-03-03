@@ -5,14 +5,14 @@ const q = faunadb.query
 exports.handler = async (event, context) => {
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
+    secret: "fnAEDTbsdeACCJ6xukJs5ZDTkEjr1kxe-Vyu4xVF"
   }) 
   const data = JSON.parse(event.body)
   console.log('data', data)
   console.log('Function `todo-delete-batch` invoked', data.ids)
   // construct batch query from IDs
   const deleteAllCompletedTodoQuery = data.ids.map((id) => {
-    return q.Delete(q.Ref(`classes/todos/${id}`))
+    return q.Delete(q.Ref(`CRUD/${id}`))
   })
   // Hit fauna with the query to delete the completed items
   return client.query(deleteAllCompletedTodoQuery)

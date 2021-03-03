@@ -6,7 +6,7 @@ const q = faunadb.query
 exports.handler = async (event, context) => {
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
+    secret: "fnAEDTbsdeACCJ6xukJs5ZDTkEjr1kxe-Vyu4xVF"
   })  
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body)
@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
     data: data
   }
   /* construct the fauna query */
-  return client.query(q.Create(q.Ref('classes/todos'), todoItem))
+  return client.query(q.Create(q.Collection('CRUD'), todoItem))
     .then((response) => {
       console.log('success', response)
       /* Success! return the response with statusCode 200 */

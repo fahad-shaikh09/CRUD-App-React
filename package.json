@@ -7,14 +7,16 @@
     "analytics": "^0.3.5",
     "faunadb": "^2.13.1",
     "markdown-magic": "^1.0.0",
+    "queue-microtask": "^1.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^4.0.3"
   },
   "scripts": {
     "bootstrap": "netlify dev:exec node ./scripts/bootstrap-fauna-database.js",
     "docs": "md-magic --path '**/*.md' --ignore 'node_modules'",
-    "start": "netlify dev",
+    "dev": "netlify dev",
+    "start": "react-scripts start",
     "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
     "build": "react-scripts build"
   },

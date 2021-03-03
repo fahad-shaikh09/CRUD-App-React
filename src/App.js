@@ -67,7 +67,7 @@ export default class App extends Component {
     })
     // Make API request to create new todo
     api.create(todoInfo).then((response) => {
-      console.log(response)
+      console.log("response >>>>>>>>>>>>>>>>>>>:", response)
       /* Track a custom event */
       analytics.track('todoCreated', {
         category: 'todos',

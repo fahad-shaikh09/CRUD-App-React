@@ -6,11 +6,11 @@ const q = faunadb.query
 exports.handler = (event, context) => {
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
+    secret: "fnAEDTbsdeACCJ6xukJs5ZDTkEjr1kxe-Vyu4xVF"
   }) 
   const id = getId(event.path)
   console.log(`Function 'todo-read' invoked. Read id: ${id}`)
-  return client.query(q.Get(q.Ref(`classes/todos/${id}`)))
+  return client.query(q.Get(q.Ref(`CRUD/${id}`)))
     .then((response) => {
       console.log('success', response)
       return {
