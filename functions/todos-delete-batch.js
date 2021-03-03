@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
   console.log('Function `todo-delete-batch` invoked', data.ids)
   // construct batch query from IDs
   const deleteAllCompletedTodoQuery = data.ids.map((id) => {
-    return q.Delete(q.Ref(`CRUD/${id}`))
+    return q.Delete(q.Ref(q.Collection("CRUD"),(`${id}`)))
   })
   // Hit fauna with the query to delete the completed items
   return client.query(deleteAllCompletedTodoQuery)
