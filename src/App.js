@@ -324,7 +324,7 @@ export default class App extends Component {
             />
             <div className='todo-actions'>
               <button className='todo-create-button'>
-                Create todo
+                Add todo
               </button>
               <SettingsIcon onClick={this.openModal}  className='desktop-toggle' />
             </div>
